@@ -1,17 +1,18 @@
 
 
-class ${name}_driver `${name}_plist extends uvm_driver #(${name}_seq_item);
+class ${name}_driver `${name}_plist extends uvm_driver #(${name}_seq_item `${name}_param);
 	
-	typedef ${name}_driver `${name}_params this_t;
-	typedef ${name}_config `${name}_params cfg_t;
+	typedef ${name}_driver   `${name}_params this_t;
+	typedef ${name}_config   `${name}_params cfg_t;
+	typedef ${name}_seq_item `${name}_params seq_i_t;
 	
 	`uvm_component_param_utils (this_t);
 
 	const string report_id = "${name}_driver";
 	
-	uvm_analysis_port #(${name}_seq_item)		ap;
+	uvm_analysis_port #(seq_i_t)					ap;
 	
-	cfg_t													m_cfg;
+	cfg_t											m_cfg;
 	
 	function new(string name, uvm_component parent=null);
 		super.new(name, parent);
@@ -30,7 +31,7 @@ class ${name}_driver `${name}_plist extends uvm_driver #(${name}_seq_item);
 	endfunction
 	
 	task run_phase(uvm_phase phase);
-		${name}_seq_item		item;
+		seq_i_t		item;
 		
 		forever begin
 			seq_item_port.get_next_item(item);

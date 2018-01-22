@@ -1,6 +1,6 @@
 
 
-class ${name}_seq_base `${name}_plist extends uvm_sequence #(${name}_seq_item);
+class ${name}_seq_base `${name}_plist extends uvm_sequence #(${name}_seq_item `${name}_params);
 	typedef ${name}_seq_base `${name}_params this_t;
 	`uvm_object_param_utils(this_t)
 	

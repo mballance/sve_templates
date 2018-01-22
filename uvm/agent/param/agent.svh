@@ -14,13 +14,14 @@ class ${name}_agent `${name}_plist extends uvm_agent;
 	typedef ${name}_driver `${name}_params 	drv_t;
 	typedef ${name}_config `${name}_params 	cfg_t;
 	typedef ${name}_monitor `${name}_params	mon_t;
+	typedef seq_i_t `${name}_params seq_i_t;
 
 	drv_t													m_driver;
-	uvm_sequencer #(${name}_seq_item)			m_seqr;
+	uvm_sequencer #(seq_i_t)			m_seqr;
 	mon_t													m_monitor;
 	
-	uvm_analysis_port #(${name}_seq_item)		m_mon_out_ap;
-	uvm_analysis_port #(${name}_seq_item)		m_drv_out_ap;
+	uvm_analysis_port #(seq_i_t)		m_mon_out_ap;
+	uvm_analysis_port #(seq_i_t)		m_drv_out_ap;
 	
 	cfg_t													m_cfg;
 	

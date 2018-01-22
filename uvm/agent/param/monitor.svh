@@ -2,10 +2,12 @@
 
 class ${name}_monitor `${name}_plist extends uvm_monitor;
 
-	uvm_analysis_port #(${name}_seq_item)			ap;
-
 	typedef ${name}_monitor `${name}_params this_t;
 	typedef ${name}_config `${name}_params  cfg_t;
+	typedef ${name}_seq_item `${name}_params  seq_i_t;
+	
+	uvm_analysis_port #(seq_i_t)			ap;
+
 	
 	cfg_t									m_cfg;
 	
